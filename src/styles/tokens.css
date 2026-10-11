@@ -1,0 +1,15 @@
+:root {
+  --paper: #f6f2e9;
+  --surface: #fffdf8;
+  --ink: #292820;
+  --muted: #68675f;
+  --line: #d8d3c6;
+  --forest: #29483d;
+  --forest-dark: #1d342c;
+  --brass: #8b6c3b;
+  --terracotta: #a5533b;
+  --quiet-fill: #eae6dc;
+  --radius-card: 14px;
+  --radius-control: 8px;
+  --shadow-paper: 0 6px 24px rgb(41 40 32 / 5%);
+}

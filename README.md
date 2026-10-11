@@ -2,6 +2,10 @@
 
 A private two-person weekly discipline pact for Catalina and Cristian.
 
+Weekly goals can be revised during the active week. A revision temporarily pauses ranked display until both members approve the updated plan; approved changes apply to the full week. The interface uses warm translucent surfaces over a calm paper background.
+
+Weight observations, daily calorie totals, and activity statistics are shared between Catalina and Cristian. Private check-in notes remain visible only to the author. Weight and calorie statistics never add competition points.
+
 ## Requirements
 
 - Node.js 24 LTS and npm
@@ -14,24 +18,19 @@ A private two-person weekly discipline pact for Catalina and Cristian.
 2. Run `npx supabase start` and `npx supabase db reset`.
 3. Copy `.env.example` to `.env.local` and use the local API URL and publishable/anon key from `npx supabase status`.
 4. Provision Catalina and Cristian using the process below.
-5. Run `npm run dev` and open `/discipline-club/#/login`.
+5. Run `npm run dev` and open `/nofat/#/login`.
 
 ## Provisioning
 
-Create a gitignored `.env.provision.local` containing:
+Sign in to the Supabase CLI first with `bunx supabase login`. Create a gitignored `.env.provision.local` containing the project URL:
 
 ```dotenv
-PROVISION_SUPABASE_URL=http://127.0.0.1:54321
-PROVISION_SUPABASE_SECRET_KEY=LOCAL_OR_HOSTED_SECRET_KEY
-CATALINA_EMAIL=...
-CATALINA_PASSWORD=...
-CRISTIAN_EMAIL=...
-CRISTIAN_PASSWORD=...
+PROVISION_SUPABASE_URL=https://YOUR_PROJECT_REF.supabase.co
 ```
 
-Run `node --env-file=.env.provision.local scripts/provision-users.mjs`. The operation is idempotent and stops if an email or member slot conflicts. Delete the credential file after hosted provisioning.
+Run `bun --env-file=.env.provision.local scripts/provision-users.mjs`. The script asks the authenticated Supabase CLI for the project's secret API key in memory; it does not print the key. The operation creates the fixed Catalina and Cristian member accounts. Both use club code `2000`; their internal Supabase email identifiers are not shown in the interface. The operation is idempotent and stops if an existing identity or member slot conflicts. Delete the URL file after hosted provisioning.
 
-Public signup must remain disabled. To recover an account, verify the member and use a trusted local admin script or Supabase dashboard to call `updateUserById`; never put an administrative key in a `VITE_` variable.
+Public signup must remain disabled. The shared four-digit code is intentionally low security: anyone who knows the site URL and code can impersonate either member. Never put an administrative key in a `VITE_` variable.
 
 ## Commands
 
@@ -45,7 +44,15 @@ Public signup must remain disabled. To recover an account, verify the member and
 
 ## Deployment
 
-Create a public GitHub repository named `discipline-club`. In repository variables set `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY`. Select GitHub Actions as the Pages source. The workflow verifies locally and publishes only `dist`.
+This checkout is connected to `csandor02/nofat`, so Vite builds for the `/nofat/` repository subpath.
+
+1. Apply pending database migrations with `bunx supabase db push`.
+2. In Supabase **Authentication → URL Configuration**, set the Site URL to `https://csandor02.github.io/nofat/`; keep public sign-up disabled.
+3. In GitHub **Settings → Secrets and variables → Actions → Variables**, add `VITE_SUPABASE_URL` and the **publishable** `VITE_SUPABASE_PUBLISHABLE_KEY` (never the secret API key).
+4. In GitHub **Settings → Pages**, choose **GitHub Actions** as the source.
+5. Commit and push the project to `main`. The workflow runs the release checks and publishes only `dist`.
+
+The site URL will be `https://csandor02.github.io/nofat/`.
 
 ## Operations
 

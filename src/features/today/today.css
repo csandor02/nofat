@@ -1,0 +1,53 @@
+.today-hero { display: flex; justify-content: space-between; align-items: end; margin: 24px 0 40px; }
+.today-hero h1 { margin: 4px 0 4px; font-size: clamp(3.4rem, 6vw, 5rem); line-height: 1; letter-spacing: -.03em; }
+.today-hero h1 em { color: var(--forest); font-weight: 500; }
+.today-hero p:last-child { color: var(--muted); }
+.week-stamp { width: 82px; border: 1px solid var(--line); border-radius: 50% 50% 8px 8px; padding: 14px 10px 9px; text-align: center; }
+.week-stamp span, .week-stamp i { display: block; font-size: .61rem; text-transform: uppercase; letter-spacing: .1em; font-style: normal; }
+.week-stamp strong { display: block; color: var(--forest); font-size: 2.2rem; line-height: 1; }
+.dashboard-grid { display: grid; grid-template-columns: minmax(0, 1.9fr) minmax(290px, 1fr); gap: 24px; align-items: start; }
+.main-column, .side-column { display: grid; gap: 24px; }
+.card-heading { display: flex; justify-content: space-between; gap: 20px; align-items: start; }
+.card-heading h2 { margin: 4px 0 0; font-size: 2rem; }
+.duel-card { padding: 28px; }
+.players { display: grid; grid-template-columns: 1fr 1fr; margin-top: 24px; border-top: 1px solid var(--line); }
+.player { position: relative; display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; padding: 26px 28px 18px 0; }
+.player + .player { padding-right: 0; padding-left: 28px; border-left: 1px solid var(--line); }
+.monogram { display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid var(--brass); border-radius: 50%; color: var(--brass); font-family: "Cormorant Garamond"; font-size: 1.1rem; }
+.player-name { margin: 0; font-size: .84rem; font-weight: 500; }
+.score-number { display: flex; align-items: baseline; gap: 5px; line-height: 1; }
+.score-number strong { font-size: 2.65rem; font-weight: 500; }
+.score-number span { color: var(--muted); font-family: "DM Sans"; font-size: .7rem; }
+.score-number.small strong { font-size: 2rem; }
+.leading { color: var(--forest); font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; }
+.score-bar { grid-column: 1 / -1; height: 5px; overflow: hidden; border-radius: 5px; background: var(--quiet-fill); }
+.score-bar i { display: block; height: 100%; background: var(--forest); }
+.category-list { grid-column: 1 / -1; display: grid; gap: 7px; margin-top: 7px; }
+.category-list div { display: flex; justify-content: space-between; color: var(--muted); font-size: .76rem; }
+.category-list strong { color: var(--ink); }
+.versus { position: absolute; z-index: 2; right: -17px; top: 34px; display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); color: var(--muted); font-family: "Cormorant Garamond"; font-style: italic; }
+.duel-note { margin: 6px 0 0; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: .73rem; text-align: center; }
+.checkin-card { padding: 28px; }
+.date-select { border: 0; background: transparent; color: var(--forest); font-size: .8rem; }
+.checkin-card form { margin-top: 20px; }
+.check-row, .number-row { min-height: 70px; display: flex; align-items: center; gap: 13px; border-top: 1px solid var(--line); cursor: pointer; }
+.check-row input { appearance: none; width: 23px; height: 23px; flex: 0 0 auto; border: 1px solid #aaa69b; border-radius: 5px; }
+.check-row input:checked { background: var(--forest); border-color: var(--forest); }
+.check-row > svg { margin-left: auto; color: transparent; }
+.check-row input:checked ~ svg { color: white; transform: translateX(-2px); pointer-events: none; }
+.check-row span, .number-row label { display: grid; gap: 3px; flex: 1; }
+.check-row small, .number-row small { color: var(--muted); }
+.number-row .input { width: 92px; }
+.note-field { margin-top: 15px; }
+.note-field label { display: flex; justify-content: space-between; }.note-field label span { color: var(--muted); font-size: .7rem; font-weight: 400; }
+.save-button { width: 100%; margin-top: 18px; }
+.pact-summary { padding: 24px; }
+.pact-summary h2 { margin: 4px 0 18px; font-size: 2rem; }
+.pact-state { display: flex; gap: 12px; align-items: center; }.pact-state div { display: grid; gap: 3px; }.pact-state small { color: var(--muted); font-size: .7rem; }.seal { display: grid; place-items: center; width: 37px; height: 37px; border: 1px solid var(--forest); border-radius: 50%; color: var(--forest); font-family: "Cormorant Garamond"; font-size: 1.2rem; }
+.pact-summary .rule { margin: 20px 0; }.pact-summary ul { display: grid; gap: 9px; padding: 0; list-style: none; }.pact-summary li { display: flex; justify-content: space-between; font-size: .78rem; }.pact-summary li span { color: var(--muted); }.pact-summary a { display: flex; align-items: center; gap: 8px; margin-top: 20px; color: var(--forest); font-size: .8rem; font-weight: 500; }
+.meme-card { position: relative; overflow: hidden; padding: 26px; border-radius: var(--radius-card); background: var(--forest); color: white; }.meme-card .eyebrow { color: #d5bd91; }.meme-card blockquote { position: relative; z-index: 1; margin: 36px 0 42px; font-size: 1.85rem; line-height: 1.05; }.meme-card > span { font-size: .58rem; letter-spacing: .08em; opacity: .65; }.meme-lines { position: absolute; right: -30px; bottom: 25px; transform: rotate(-20deg); opacity: .12; }.meme-lines i { display: block; width: 170px; height: 34px; border-top: 1px solid white; border-radius: 50%; }
+.inspiration { display: grid; gap: 3px; padding: 14px 2px; color: var(--ink); text-decoration: none; }.inspiration span { color: var(--brass); font-size: .65rem; text-transform: uppercase; letter-spacing: .1em; }.inspiration strong { font-size: .8rem; }
+.mobile-log { display: none; text-align: center; text-decoration: none; }
+.error-panel { padding: 48px; }.error-panel h1 { font-size: 3rem; }
+@media (max-width: 850px) { .dashboard-grid { grid-template-columns: 1fr; }.side-column { grid-template-columns: 1fr 1fr; }.inspiration { display: none; } }
+@media (max-width: 600px) { .today-hero { margin-top: 12px; }.today-hero h1 { font-size: 2.9rem; }.today-hero p:last-child, .week-stamp { display: none; }.duel-card, .checkin-card { padding: 20px; }.players { grid-template-columns: 1fr; }.player { padding: 22px 0; }.player + .player { padding: 22px 0; border-left: 0; border-top: 1px solid var(--line); }.versus { display: none; }.side-column { grid-template-columns: 1fr; }.mobile-log { display: block; }.checkin-card { scroll-margin-top: 12px; } }
